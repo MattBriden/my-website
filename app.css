@@ -1,0 +1,87 @@
+.bg {
+  background: url('/assets/images/pittsburgh-skyline-1234686.jpg') no-repeat center top;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.home-body {
+  margin-top:30px;
+  height:100%;
+}
+
+.white-container {
+  padding:40px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.right {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+}
+
+.background-grey{
+  padding:1px;
+  padding-left:20px;
+  padding-right:20px;
+  background-color: #DCDCDC;
+}
+
+.courier-font{
+  font-family: "Courier New", Courier, monospace;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.right-text{
+  display: inline-block;
+  text-align: right;
+}
+
+.icon-size {
+  max-width: 7em;
+}
+
+.contact-icon {
+  max-width: 5em;
+}
+
+.copyright {
+  padding:10px;
+}
