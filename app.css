@@ -1,7 +1,7 @@
 .bg {
-  background: url('/assets/images/pittsburgh-skyline-1234686.jpg') no-repeat center top;
-  margin: 0 auto;
-  height: 100%;
+  background: url('assets/pittsburgh-skyline-1234686.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .home-body {
@@ -24,8 +24,12 @@ ul {
   width: 100%;
 }
 
-li {
+.left-li {
   float: left;
+}
+
+.right-li {
+  float: right;
 }
 
 li a {
@@ -54,15 +58,29 @@ li a:hover {
   text-align: right;
 }
 
-.background-grey{
+.container-padding {
   padding:1px;
   padding-left:20px;
   padding-right:20px;
-  background-color: #DCDCDC;
+}
+.background-grey-1{
+  height: auto;
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(49,49,49,.8));
 }
 
-.courier-font{
-  font-family: "Courier New", Courier, monospace;
+.background-grey-2{
+  height: auto;
+  background-image: linear-gradient(rgba(49,49,49,.8), rgba(49,49,49,.9));
+}
+
+.background-grey-3{
+  height: auto;
+  background-image: linear-gradient(rgba(49,49,49,.9), rgba(49,49,49,1));
+}
+
+.verdana-font{
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 .center-text {
@@ -76,10 +94,6 @@ li a:hover {
 
 .icon-size {
   max-width: 7em;
-}
-
-.contact-icon {
-  max-width: 5em;
 }
 
 .copyright {
