@@ -1,3 +1,4 @@
+<h3>Too much data? Reactive APIs can help</h2>
 <p>
 I recently ran into an issue where an endpoint in a RESTful Spring API I manage would timeout depending on the amount of data it was trying to return. The logic behind the endpoint was simple; retrieve the last 6 months worth of data from the DB, convert each entity into a DTO, and when complete return the entire data set to the front end application. When the product was new with few customers using it this worked great. But now 4 years into existence we have larger datasets and larger customers and this strategy proved to not scale well. Some of our larger customers have upwards of 160,000 data entries in the 6 month period we were querying and the page became completely unresponsive.
 </p>
@@ -5,6 +6,7 @@ I recently ran into an issue where an endpoint in a RESTful Spring API I manage 
 Looking for a solution I stumbled upon the <a href="https://www.baeldung.com/spring-webflux" target="_blank">Spring WebFlux</a> framework. The idea behind Spring WebFlux is that it's non-blocking and reactive. Instead of a data set being returned all at once, it gets returned to the client as a stream. By doing this the client doesn't have to sit around waiting for the API response, it can update the necessary components with data as it gets returned from the API and the rest of the page can load indpendently. This paradigm can help applications scale and perfrom at a much better rate, especially those that deal with large amounts of data.
 </p>
 <p>
+<h3>Building a reactive API with Spring WebFlux</h3>
 Building the bare bones and infrastructure of a Spring WebFlux API proved to be straightforward. For this POC I used Apache Maven as the build tool and stood up a PostgreSQL DB behind the API. To use traditional Spring Data Repositories in a reactive way we leverage Spring Data R2DBC insted of JDBC. R2DBC stands for Reactive Relational Database Connectivity and basically allows relational data access for reactive applications. Adding the following dependencies to the POM file is all that is needed for this implementation.
 </p>
 <pre>

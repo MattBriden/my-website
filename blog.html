@@ -10,7 +10,7 @@
         const blog = urlParams.get('blog');
         $(document).ready(function() {
             $('#sidebar').load('sidebar.html');
-            $(".title").html(String(blog));
+            $(".heading").html(String(blog));
             $.ajax({
                 url : "blogposts/" + blog + ".txt",
                 success : function (data) {
@@ -19,6 +19,8 @@
             });
         });
     </script>
+    <meta property="og:title" content="Matt Briden - Spring Web Flux"/>
+    <meta property="og:image" content="assets/webflux.png"/>
 </head>
 <body>
 
@@ -26,7 +28,7 @@
 </div>
 
 <div class="main">
-    <h2 class="title"></h2>
+    <h2 class="heading"></h2>
     <div class="card">
         <p class="blog"></p>
     </div>
