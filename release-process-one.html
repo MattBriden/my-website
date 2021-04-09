@@ -17,6 +17,7 @@
 <div class="main">
     <h2>The Release Process - Trading Functionality for Releasability</h2>
     <div class="card">
+        <!-- <img src="assets/distributed-monolith.jpg"/> -->
         <h3>The Headaches of Releasing</h3>
         <p>
             As web developers it can be easy to lose sight of the end goal of the code we write. We can get caught up in new technologies or focus on nagging edge cases that we know exist since we built the system. But at the end of the day the goal is to release new code to the customer and do so in a timely fashion. Unfortunately, releasing code is not always a straight forward process. Often times coordination is needed with other products and this can cause tedious extra (and arguably unnecessary) work for developers. No developer wants to spend time looking through old commits and seeing what can and can't be released, managing multiple branches with different code, or adding logic to hide features that aren't ready to be released. There can be advantages to leveraging other products' resources or piggybacking on their releases, but in my experience making sacrifices around functionality to expedite and simplify the release process can ultimately benefit any product's development cycle.
@@ -30,6 +31,9 @@
         </p>
         <p>
             The solution is to create separate codebases and applications for the underlying logic that is needed by your product. Create contracts with other products whose data yours relies on and accept the extra latency from calling those applications. For front end applications, it may mean accepting a small "blip" when navigating from one product to another in the user facing web application. But by gaining the independence to release on your terms and schedule, new code and features will make its way to customers faster. Other products will not need to care if and when you release, and vice versa. Ultimately it will create a quicker and more efficient development cycle, and as a developer allows you to focus on what you like doing best; writing code.
+        </p>
+        <p>
+            Comic corutesy of Sebastian Caceres, check out his <a href="https://sebiwi.github.io/">blog</a> for more cool stuff.
         </p>
     </div>
 </div>
