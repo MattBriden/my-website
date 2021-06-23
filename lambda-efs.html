@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="javascript/loader.js"></script>
+    <meta property="og:title" content="Matt Briden - AWS Lambda and EFS Integration"/>
+    <meta property="og:image" content="TBD"/>
+</head>
+<body>
+
+<div id="sidebar">
+</div>
+
+<div class="main">
+    <h2>Leveraging EFS in AWS Lambdas</h2>
+    <div class="card">
+        <h3>Working with disk space in AWS Lambda functions</h3>
+        <p>
+            <a href="https://aws.amazon.com/lambda/">AWS Lambda functions</a> provide a convenient solution for both asynchronous and synchronous tasks that don't need the support of a self managed server. Personally, when I am working on a project I try to find which pieces I can put into Lambda functions due to the serverless nature, cost effectiveness, and low maintenence needed from an ops perspective. Recently I worked on a file processing project and ran into one of the most common snags when using Lambda functions: disk space. AWS provides a /tmp directory for each function with 512MB of space. Often times this is plenty, but when dealing with large files it can become a serious problem. On top of having to store the files the function was processing in this area, all lambda layers get decompressed into this space as well. Thus, I started to look for a solution to allocate more space to my functions. Storing the files in memory was an option, but would be much more costly as the price of execution increases with the memory tier. I tried developing a solution that streamed files from and to S3 without having to download the entire file, but this wasn't supported by some of the libraries I relied on. Finally, I discovered an option that worked perfectly for my use case; Elastic File System.
+        </p>
+        <h3>Introducing EFS</h3>
+        <p>
+            <a href="https://aws.amazon.com/efs/">Elastic File System</a>, abbreviated as EFS, is a serverless file system that can be shared across many of the AWS Cloud services. Seemingly <a href="https://aws.amazon.com/efs/faq/">its most popular use case</a> is as a file system shared amongst EC2 instances, but, albeit not made as obvious by AWS, it can also be mounted onto Lambda functions. This provides Lambda functions with unlimited disk space to work with and provided me with a solution of how to process large files.
+        </p>
+        <p><strong>Note:</strong> The one "catch" is to mount EFS onto a function that function must reside in a VPC (along with the file system). Most enterprises I have worked with that use AWS require all applications to live in a VPC, but if working on a personal project this can result in sneaky billing costs.</p>
+        <h3>Integrating EFS in Lambda functions</h3>
+        <p>Before we can leverage EFS in our lambda function we first need to create the filesystem. Throughout this example Terraform code will be used to create the necessary resources and configuration options in AWS. Below creates our skeleton filesystem.</p>
+        <pre><code>
+    resource "aws_efs_file_system" "example_efs" {
+        lifecycle_policy {
+            transition_to_ia = "AFTER_7_DAYS"
+        }
+        encrypted = true
+
+        tags = {
+            Name = "example-file-system"
+        }
+    }
+        </code></pre>
+        <p>This provides us with the most basic filesystem </p>
+    </div>
+</div>
+
+</body>
+</html>
