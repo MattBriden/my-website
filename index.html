@@ -8,6 +8,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="javascript/loader.js"></script>
+    <script>
+      document.getElementById('lambda-efs').onclick = function() {
+        window.location.href = 'lambda-efs.html';
+      }
+    </script>
   </head>
   <body>
 
@@ -15,7 +20,7 @@
 
   <div class="main">
     <h2>Blog</h2>
-    <div class="card">
+    <div class="card" id="lambda-efs">
       <a href="lambda-efs.html">
         <h2>AWS Lambda and EFS Integration</h2>
       </a>

@@ -73,7 +73,18 @@ p {
 .card {
   background-color: white;
   padding: 20px;
-  margin-top: 20px;
+  margin: 30px;
+  box-shadow: 5px 5px #303030;
+  border: 1px solid;
+  cursor: pointer;
+}
+.card a {
+  text-decoration: none;
+}
+
+.card:hover {
+  box-shadow: 7px 7px #303030;
+  margin: 25px;
 }
 
 code {font-size: 75%;}
